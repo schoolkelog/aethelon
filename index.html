@@ -3,56 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Maintenance</title>
+    <title>Embedded Website</title>
+
+    <!-- Set the favicon using the specified image file -->
+    <link rel="icon" type="image/png" href="Screenshot_2025-11-19_232934-removebg-preview.png">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        /* Essential CSS to make the iframe fill the entire viewport */
+        html, body {
             margin: 0;
-            background-color: #f4f4f4; /* Light grey background */
-            color: #333; /* Dark text color */
-            text-align: center;
+            padding: 0;
+            height: 100%; /* Ensure body and html take full viewport height */
+            overflow: hidden; /* Hide scrollbars that might appear due to browser defaults */
         }
 
-        .container {
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 90%;
-            width: 400px;
-        }
-
-        .icon {
-            font-size: 60px; /* Large font size for the symbol */
-            color: #e74c3c; /* Red color for error/stop */
-            margin-bottom: 20px;
-            /* Using a common Unicode symbol for "No Entry" or "Error" */
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 24px;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-            color: #555;
+        /* Style the iframe to fill the entire body area */
+        #fullScreenFrame {
+            width: 100vw; /* 100% of viewport width */
+            height: 100vh; /* 100% of viewport height */
+            border: none; /* Remove the default border around the iframe */
+            display: block; /* Ensures it doesn't take up extra space */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="icon">❌</div>
-        <h1>Servers are Down</h1>
-        <p>SKL Mindforge is currently working on improving **SKL Aethelon**.</p>
-        <p>We apologize for the inconvenience and thank you for your patience!</p>
-    </div>
+
+    <!--
+    The iframe loads the external content. Note that the browser's
+    security policy (X-Frame-Options or CSP) of the embedded website
+    ultimately determines if it will render inside an iframe.
+    -->
+    <iframe
+        id="fullScreenFrame"
+        src="https://glittery-smakager-90547b.netlify.app"
+        title="External Content Embedded"
+        loading="eager">
+    </iframe>
+
 </body>
 </html>
